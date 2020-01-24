@@ -1,0 +1,55 @@
+<h3>half-loaded Data!
+    <span style="text-size-adjust: 33px;font-size: 20px;font-stretch: condensed;"><a routerLink="/full">Reload Full Load</a></span>
+    <span style="text-align: right;font-size: medium; float:right;">
+        <button class="btn btn-success" type="submit" (click)="enableNewRecord()">
+            <span *ngIf="addNewData"> NEW RECORED </span>
+            <span *ngIf="!addNewData"> Cancel </span>
+        </button>
+    </span></h3>
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>gender</th>
+            <th>Designation</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let x of data; let i=index">
+            <td>{{x.ID}}</td>
+            <td>{{x.Name}}</td>
+            <td>{{x.gender}}</td>
+            <td>{{x.department}}</td>
+            <!-- <td>{{x|json}}</td> -->
+            <td>
+                <span style="text-align: center;">
+                    <!-- <button class="glyphicon glyphicon-edit"></button> &nbsp;  -->
+                    <button (click)=del(x); class="glyphicon glyphicon-trash"></button>
+                </span>
+            </td>
+            <!-- <td>{{x.del}}</td> -->
+        </tr>
+        <tr *ngIf="!addNewData">
+            <td> <input type="number" [(ngModel)]="addData.ID" placeholder="give ID"> </td>
+            <td> <input type="text" placeholder="please type Name here" [(ngModel)]="addData.Name">
+            </td>
+            <td>
+                <!-- <input type="text" placeholder="M/F" onkeypress="return (event.charCode ===77||event.charCode === 70||event.charCode === 102||event.charCode === 109)" [(ngModel)]="addData.gender"> <br> -->
+                <select [(ngModel)]="addData.gender">
+                    <option value=undefined>Select Gender</option>
+                    <option value='Male'>Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </td>
+            <td> <select [(ngModel)]="addData.department">
+                    <option [value]=undefined>Select Option</option>
+                    <option *ngFor="let d of depart" [value]=d.dept>{{d.dept}}</option>
+                </select>
+                <!-- <br>{{addData.department}} -->
+            </td>
+            <td><button class="btn btn-info" (click)="save(addData.ID)">Save</button></td>
+        </tr>
+    </tbody>
+</table>

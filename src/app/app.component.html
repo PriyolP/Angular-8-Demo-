@@ -1,0 +1,58 @@
+<div>
+  <div class="col-md-3">
+
+  </div>
+  <div class="col-md-6">
+    <!-- <div>Pie-Chart</div> -->
+    <div class="col-md-12">
+      <div class="col-md-6">
+        <div style="display: block">
+          <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType">
+          </canvas>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <!-- <button (click)="chartCallOne()">dddddd</button> -->
+        <div style="display: block">
+          <canvas baseChart [data]="doughnutChartData2" [labels]="doughnutChartLabels2" [chartType]="doughnutChartType">
+          </canvas>
+        </div>
+      </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br>
+    <router-outlet></router-outlet>
+
+  </div>
+  <div class="col-md-3">
+
+  </div>
+
+</div>
+<!-- --------------------<br>
+<router-outlet></router-outlet>
+<br>---------------#############---------- -->
+
+<!-- <div>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>gender</th>
+        <th>Id</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td> <input text="name"></td>
+        <td><button>Save</button></td>
+      </tr>
+    </thead>
+  </table>
+</div> -->
